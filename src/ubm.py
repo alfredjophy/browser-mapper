@@ -21,7 +21,7 @@ url = sys.argv[1]
 browser_defaults = {
     "chromium" : {
         "browsers" : ["brave","chromium","google-chrome"],
-        "profile_command" : "--profile_directory=",
+        "profile_command" : "--profile-directory=",
     },
     "firefox" : {
         "browsers": ["firefox","icecat","librewolf"],
@@ -41,10 +41,8 @@ def launch_command(config,url) :
     command = config["browser"]
     for i in browser_defaults:
         if config["browser"] in browser_defaults[i]["browsers"]:
-            command = "{} {}'{}' '{}'".format(command,browser_defaults[i]["profile_command"],config["browser_profile"],url)
+            command = "{} {}'{}' {}".format(command,browser_defaults[i]["profile_command"],config["profile"],url)
             break
-
-    print(command)
     return command
 
 command=''
@@ -58,10 +56,11 @@ for i in patterns:
         continue
     break
 else:
-    if(config["default_browser"]["browser_profile"]==''):
+    if(config["default_browser"]["profile"]==''):
         command = "{} {}".format(config["default_browser"]["browser"],url)
     else:
-        commad = launch_command(config["default_browser"],url)
+        command = launch_command(config["default_browser"],url)
 
+print(command)
 process = subprocess.Popen(command,start_new_session=True,stdout=subprocess.DEVNULL,stderr=subprocess.STDOUT,shell=True)
 

@@ -1,0 +1,29 @@
+{
+    "default_browser" : {
+        "browser" :"firefox",
+        "browser_profile" : ""
+    },
+    "patterns" : [
+    {
+        "url_patterns" : ["0.0.0.0","localhost","127.0.0.0"],
+        "browser" : "firefox",
+        "browser_profile" : "dev"
+    },
+    {
+        "url_patterns" : ["google.com","meet.google.com","forms.google.com"],
+        "browser" : "firefox",
+        "browser_profile" : "college_stuff"
+    },
+    {
+        "url_patterns": ["algata.ga"],
+        "browser" : "brave",
+        "browser_profile" : "Profile 13"
+    },
+    {
+        "url_patterns": ["github.com"],
+        "browser" : "firefoxpwa",
+        "browser_profile" : "01FFAZW39PG9F70N1ASEZ17G5K"
+    }
+]
+}
+

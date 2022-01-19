@@ -4,19 +4,25 @@ import json
 import sys
 import re
 import subprocess
+import pathlib
+
+CONFIG_DIRECTORY = pathlib.Path.home()
+CONFIG_FILE = CONFIG_DIRECTORY / '/.config/ubm/config.json'
+
+if not CONFIG_FILE.is_file() or not CONFIG_DIRECTORY.is_dir() : 
+    print("UrlBrowserMapper is not configured. Run ubmctl")
+    exit()
+else :
+    config_file=open(CONFIG_FILE,'r')
+    config=json.load(config_file)
+    config_file.close()
+
 
 try:
     config_file = open('./config.json','r')
 except : 
     print("File not found!")
     exit()
-
-config = json.load(config_file)
-config_file.close()
-
-patterns=config["patterns"]
-
-url = sys.argv[1]
 
 browser_defaults = {
     "chromium" : {
@@ -45,9 +51,19 @@ def launch_command(config,url) :
             break
     return command
 
+
+
+config = json.load(config_file)
+config_file.close()
+
+mappings=config["mappings"]
+
+url = sys.argv[1]
+
+
 command=''
 
-for i in patterns:
+for i in mappings:
     for j in i["url_patterns"]:
         if re.match(j,url,re.I) :
             command=launch_command(i,url)

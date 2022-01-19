@@ -1,10 +1,9 @@
 #!/bin/python
-
 import json
 import sys
-import re
 import subprocess
 import pathlib
+from urllib.parse import urlparse
 
 CONFIG_DIRECTORY = pathlib.Path.home()/'.config/ubm'
 CONFIG_FILE = CONFIG_DIRECTORY/'config.json'
@@ -54,9 +53,11 @@ url = sys.argv[1]
 
 command=''
 
+hostname = urlparse(url).hostname
+
 for i in mappings:
     for j in i["url_patterns"]:
-        if re.match(j,url,re.I) :
+        if hostname == j:
             command=launch_command(i,url)
             break
     else:

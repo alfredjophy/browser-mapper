@@ -69,6 +69,5 @@ else:
     else:
         command = launch_command(config["default_browser"],url)
 
-print(command)
 process = subprocess.Popen(command,start_new_session=True,stdout=subprocess.DEVNULL,stderr=subprocess.STDOUT,shell=True)
 

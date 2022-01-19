@@ -64,12 +64,20 @@ def delete_map(config,args) :
     except:
         print("Invalid Arguments")
     update_config_file(config)
+def delete_browser(config,args):
+    try:
+        config["mappings"].pop(args[0])
+    except:
+        print("Invalid Arguments")
+    print_config(config)
+    update_config_file(config)
 
 ########################################
 
 parser = argparse.ArgumentParser(prog='ubmctl',description='Map browsers to url patterns.')
 parser.add_argument('--list-maps','-l',help='list current browsers-url mappings',action='store_true')
 parser.add_argument('--delete-map',help='delete a mapping',type=int,nargs=2,metavar=('BROWSER_INDEX','MAP_INDEX'))
+parser.add_argument('--delete-browser',help='delete a browser',type=int,nargs=1,metavar=('BROWSER_INDEX'))
 parser.add_argument('--set-default',help="Set default browser and profile",nargs=2,metavar=('BROWSER','PROFILE'))
 parser.add_argument('--add-browser',help='Add a new browsers',nargs=2,metavar=('BROWSER','PROFILE'))
 parser.add_argument('--add-map',help='Add a url pattern to a browser+profile',nargs=2,metavar=('BROWSER_INDEX','URL_PATTERN'),)
@@ -97,3 +105,5 @@ elif args.add_map:
     add_map(config,args.add_map)
 elif args.delete_map:
     delete_map(config,args.delete_map)
+elif args.delete_browser:
+    delete_browser(config,args.delete_browser)

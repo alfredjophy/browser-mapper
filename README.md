@@ -17,7 +17,14 @@ Your system will open all urls in ubm which will search through the configuratio
 
 This is still in beta, so please be patient
 
+### Installation
 
+1. Clone the repos
+2. `make install`
+
+* To set ubm as the default browser, `xdg-settings set default-web-browser UrlBrowserMapper.desktop`
+
+1. To remove, `make uninstall`
 
 
 

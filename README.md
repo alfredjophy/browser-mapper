@@ -18,6 +18,7 @@ Your system will open all urls in ubm which will search through the configuratio
 This is still in beta, so please be patient
 
 ### Installation
+* If you are on Arch , `urlbrowsermapper` is available in the AUR
 1. Clone the repository and cd into it
 
 ```

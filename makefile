@@ -1,4 +1,4 @@
-PREFIX?=$(HOME)/.local
+PREFIX?=/usr/local
 install:
 	cp ubm.py $(PREFIX)/bin/ubm
 	cp ubmctl.py $(PREFIX)/bin/ubmctl

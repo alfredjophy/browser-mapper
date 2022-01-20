@@ -59,11 +59,11 @@ The configuration file is store in \$HOME/.config/ubm/config.json. If `ubmctl` f
 
 Browser Profiles are handled differently by browsers.
 
-#### For firefox and its derivates
+#### For firefox and its derivatives
 
 * Go to `about:profiles` to see the profiles
 
-#### For Chromium and its derivates
+#### For Chromium and its derivatives
 
 * Go to `chrome://version` and check the Profile Path section
 * The last part of the Profile Path will the profile name

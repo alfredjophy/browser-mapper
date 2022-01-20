@@ -47,7 +47,7 @@ xdg-settings set default-web-browser UrlBrowserMapper.desktop`
 ubmctl --set-default <Browser> <Profile>
 ```
 
-To find the browser profile see [here](#Browser Profiles)
+To find the browser profile see **Browser Profiles**
 
 ### Configuration
 

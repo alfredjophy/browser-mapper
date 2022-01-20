@@ -1,10 +1,10 @@
 PREFIX?=/usr/local
 install:
-	cp ubm.py $(PREFIX)/bin/ubm
-	cp ubmctl.py $(PREFIX)/bin/ubmctl
-	cp UrlBrowserMapper.desktop $(PREFIX)/share/applications/
+	cp ubm.py $(DESTDIR)$(PREFIX)/bin/ubm
+	cp ubmctl.py $(DESTDIR)$(PREFIX)/bin/ubmctl
+	cp UrlBrowserMapper.desktop $(DESTDIR)$(PREFIX)/share/applications/
 uninstall:
-	rm $(PREFIX)/share/applications/UrlBrowserMapper.desktop
-	rm $(PREFIX)/bin/{ubm,ubmctl}
+	rm $(DESTDIR)$(PREFIX)/share/applications/UrlBrowserMapper.desktop
+	rm $(DESTDIR)$(PREFIX)/bin/{ubm,ubmctl}
 
 

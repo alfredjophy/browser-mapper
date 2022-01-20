@@ -30,6 +30,7 @@ browser_defaults = {
     "firefox_pwa": {
         "browsers" : ["firefoxpwa"],
         "profile_command" : "site launch ",
+        "url_command" : "--url ",
     },
     "epiphany" : {
         "browsers" : ["epiphany"],
@@ -41,7 +42,8 @@ def launch_command(config,url) :
     command = config["browser"]
     for i in browser_defaults:
         if config["browser"] in browser_defaults[i]["browsers"]:
-            command = "{} {}'{}' {}".format(command,browser_defaults[i]["profile_command"],config["profile"],url)
+            command = "{} {}'{}' ".format(command,browser_defaults[i]["profile_command"],config["profile"])
+            command = command + "{}{}".format(browser_defaults[i]["url_command"] if "url_command" in browser_defaults[i].keys() else '',url)
             break
     return command
 
